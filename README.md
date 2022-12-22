@@ -20,8 +20,6 @@ https://micropython.org/download/rp2-pico-w/
 Todo...
 
 
-See the [documentation](https://turbomods.jauriarts.com/).
-
 
 ## Development
 
