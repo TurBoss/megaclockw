@@ -1,7 +1,3 @@
-<<<<<<< main
-# megaclockw
-Mega Drive Overclock system
-=======
 # MegaClockW - Remote control your MD mods over wifi
 
 MegaClockW Allows to control Region/Lang, video mode HZ, reset console and control the cpu mhz from 5.0 to 12.8
@@ -47,4 +43,3 @@ codes, and the authors of this software can not, and do not, take
 any responsibility for such compliance.
 
 This software is released under the GPLv3.
->>>>>>> Update LICENSE and README.md
