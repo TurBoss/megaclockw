@@ -8,8 +8,11 @@ MegaClockW Allows to control Region/Lang, video mode HZ, reset console and contr
 
 ## Software Installation
 
-Download Thonny and install Micropython on the raspberry pi pico
+Download Thonny and install Micropython on the raspberry pi pico w
 upload the project files to the root of the pico
+
+https://github.com/thonny/thonny/releases
+https://micropython.org/download/rp2-pico-w/
 
 
 ## Hardware Installation
