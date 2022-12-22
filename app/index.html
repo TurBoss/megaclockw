@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>MegaClockW</title>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="jquery-3.6.1.slim.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+  <body>
+    <div class="widget">
+      <div class="main" id="main_bg">
+
+        <div class="title">
+          <div id="config"><img src="images/config_icon_small.png" alt="config"></div>
+          <h1><b>MegaClockW</b></h1>
+        </div>
+
+        <fieldset id="video_mode" class="video_mode">
+          <legend>Video Mode</legend>
+          <label for="eur">EUR 50 Hz</label>
+          <input type="radio" name="mode" id="eur" />
+          <br>
+          <label for="jap">JAP 60 Hz</label>
+          <input type="radio" name="mode" id="jap" />
+          <br>
+          <label for="usa">USA 60 Hz</label>
+          <input type="radio" name="mode" id="usa" />
+        </fieldset>
+
+        <br><br>
+
+        <fieldset class="clock_mode">
+          <legend>Clock Mhz.</legend>
+          <input name="clock" id="clock_input" />
+          <br><br>
+          <span>Default Hz.</span>
+          <br>
+          <button id="default_clock_50" class="ui-button ui-widget ui-corner-all">50</button><button id="default_clock_60" class="ui-button ui-widget ui-corner-all">60</button>
+
+        </fieldset>
+
+        <br><br>
+
+        <div id="reset_box">
+          <input type="checkbox" id="reset" name="reset" value="reset" />
+          <label id="reset_label" for="reset">Reset</label>
+        </div>
+
+        <br><br>
+
+        <fieldset class="wlan_scan">
+
+      		<legend>Stations</legend>
+
+			<table id="results_table"></table>
+
+        </fieldset>
+
+        <br><br>
+
+        <fieldset class="wlan_settings">
+
+          <legend>WLAN Settings</legend>
+
+          <label for="country">Country</label>
+          <input name="country" id="country_input" />
+
+          <br>
+          <label for="ssid">SSID</label>
+          <input name="ssid" id="ssid_input" />
+
+          <br>
+
+          <label for="password">Password</label>
+          <input name="password" id="password_input" type="password"/>
+
+        </fieldset>
+
+        <br><br>
+
+        <fieldset id="ip_settings" class="ip_settings">
+
+          <legend>IP Settings</legend>
+
+          <label for="dhcp">DHCP</label>
+          <input  type="radio" name="ip_mode" value="static" id="dhcp" />
+
+          <label for="static">STATIC</label>
+          <input  type="radio" name="ip_mode" value="static" id="static" />
+
+		  <div id="static_input">
+	          <label for="address">address</label>
+	          <input id="address" />
+	          <br>
+	          <label for="netmask">netmask</label>
+	          <input id="netmask" />
+	          <br>
+	          <label for="gateway">gateway</label>
+	          <input id="gateway" />
+	          <br>
+	          <label for="dns">dns</label>
+	          <input id="dns" />
+		  </div>
+        </fieldset>
+
+        <br><br>
+
+        <div id="set_box">
+          <button id="set_button" class="ui-button ui-widget ui-corner-all">Set</button>
+          <button id="cancel_button" class="ui-button ui-widget ui-corner-all">Cancel</button>
+        </div>
+
+        <br><br>
+
+        <div id="save_box">
+          <button id="save_button" class="ui-button ui-widget ui-corner-all">Save</button>
+          <button id="save_cancel_button" class="ui-button ui-widget ui-corner-all">Back</button>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <footer>
+          <p>TurBoMods - 2022</p>
+          <p><a href="https://turbomods.jauriarts.org/">https://turbomods.jauriarts.org/</a></p>
+        </footer>
+      </div>
+
+    </div>
+  </body>
+</html>

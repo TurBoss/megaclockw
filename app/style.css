@@ -1,0 +1,229 @@
+@font-face {
+  font-family: 'space-marine';
+  src: url('/space-marine.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main {
+  padding: 20px;
+  color: white;;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    background: red;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .main {
+    background: green;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+	background: rgb(33,60,159);
+	background: linear-gradient(335deg, rgba(33,60,159,1) 0%, rgba(0,0,0,1) 82%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: white;
+ 	padding: 15px;
+    font-size: 32pt;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  fieldset {
+ 	border: 1px solid;
+ 	padding: 64px;
+    font-size:18pt;
+    color: white;
+	background: black;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  legend {
+ 	border: 1px solid;
+ 	padding: 10px;
+    font-size:18pt;
+    color: white;
+	background: black;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  footer {
+    height: 40px;
+    text-align: center;
+    font-size:24pt;
+  }
+
+  .title {
+	margin: 30px;
+    color: rgb(0,41,189);
+ 	border: 6px solid white;
+  	border-radius: 50px 20px;
+	background: rgb(92,127,255);
+	background: linear-gradient(180deg, rgba(92,127,255,1) 17%, rgba(207,207,207,1) 82%);
+  }
+
+  #config {
+    float:right;
+    height: 56px;
+    width:56px;
+  }
+
+  .main {
+    height: 100%;
+    text-align:center;
+	background-color: #000000;
+	opacity: 1;
+	background-image:  linear-gradient(#ffffff 2px, transparent 2px), linear-gradient(to right, #ffffff 2px, #000000 2px);
+	background-size: 50px 50px;
+    font-size:56;
+  }
+
+  label {
+    font-size: 24pt;
+    width: 280px;
+    height: 100px;
+    vertical-align: middle;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  input[type=radio] {
+    text-align: center;
+    border: 8px;
+    border-radius: 15px;
+    width: 90%;
+    height:60px;
+  }
+
+
+  input[type=checkbox] {
+    border: 2px;
+    border-radius: 2px;
+    width: 64px;
+    height: 64px;
+    vertical-align: middle;
+  }
+
+  button {
+    width: 350px;
+    height: 120px;
+  	font-size: 24pt;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  #clock_input {
+    height: 52px;
+    font-size: 32pt;
+    width: 90%;
+	background: black;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: white;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  table {
+    width: 80%;
+    border: 1px solid;
+    border-color: white;
+    border-collapse: collapse;
+  }
+
+  #default_clock_50 {
+  	font-size: 16pt;
+  	width: 50%;
+  	height: 72px;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  #default_clock_60 {
+  	font-size: 16pt;
+  	width: 50%;
+  	height: 72px;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  #set_button {
+  	font-size: 24pt;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  #cancel_button {
+  	font-size: 24pt;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  #save_button {
+  	font-size: 24pt;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  #save_cancel_button {
+  	font-size: 24pt;
+    font-family: "Space Marine", space-marine, regular;
+  }
+
+  .video_mode {
+    width: 345px;
+  }
+  .clock_mode {
+    width: 400px;
+  }
+  .wlan_settings {
+    width: 600px;
+  }
+}
+
+/*
+@media only screen and (min-width: 992px) {
+  .main {
+    background: orange;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main {
+    background: pink;
+  }
+}
+*/
+
+body {
+  background-color: #cccccc;
+  font-family: Arial, Helvetica, Sans-Serif;
+  Color: #000088;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=75);
+    -moz-opacity:0.75;
+    -khtml-opacity: 0.75;
+    opacity: 0.75;
+    z-index: 10000;
+}
+
+
+.ui-checkboxradio-radio-label{
+  	font-size: 24pt;
+    font-family: "Space Marine", space-marine, regular;
+}
+.ui-checkboxradio-icon {
+	display: none;
+}
+.ui-spinner-button {
+	display: none;
+}
