@@ -28,7 +28,6 @@ Todo...
 
 ## Documentation and Help
 
-* [Web](https://turbomods.jauriarts.org.com)
 * [Discord](https://discord.gg/8Ck5gNkA)
 
 
