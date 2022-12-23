@@ -5,26 +5,37 @@ Remote control your MD mods over wifi
 
 MegaClockW Allows to control Region/Lang, video mode HZ, reset console and control the cpu mhz from 5.0 to 12.8
 
+
+
 ## Software Installation
 
-Download Thonny and install Micropython on the Raspberry pi pico W
+Download Thonny or rshell
 
-upload the project files with thonny to the root of the pico
+Upload the MicroPython uf2 on the Raspberry pi pico W
+by booting in program mode by holding the push button and connect the USB cable
 
+Upload the project files found in the src directory to the root of the pico using Thonny or rshell
+
+
+https://github.com/dhylands/rshell
 https://github.com/thonny/thonny/releases
 https://micropython.org/download/rp2-pico-w/
 
 
+
 ## Hardware Installation
 
-Todo...
+
+![](https://www.github.com.com/TurBoss/megaclockw/docs/schematic.png)
 
 
 
 ## Development
 
-* [GitHub Repo](https://github.com/TurBoss/MegaClockW/)
-* [Issue Tracker](https://github.com/TurBoss/MegaClockW/issues)
+* [GitHub Repo](https://github.com/TurBoss/megaclockw/)
+* [Issue Tracker](https://github.com/TurBoss/megaclockw/issues)
+
+
 
 ## Documentation and Help
 
