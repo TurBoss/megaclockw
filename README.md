@@ -28,6 +28,7 @@ https://micropython.org/download/rp2-pico-w/
 ## Hardware Installation
 
 
+![](https://raw.githubusercontent.com/TurBoss/megaclockw/main/docs/images/megaclockw.png)
 ![](https://raw.githubusercontent.com/TurBoss/megaclockw/main/docs/schematic.png)
 
 
