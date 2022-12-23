@@ -60,7 +60,7 @@ video = Signal(video_pin, invert=False)
 lang = Signal(lang_pin, invert=False)
 
 cpu_pwm = PWM(Pin(pwm_gpio))
-cpu_pwm.duty_u16(32768)
+cpu_pwm.duty_u16(32768) #  50% dutty cycle
 # cpu_pwm.freq(1000000)
 
 async def main():
@@ -374,28 +374,27 @@ async def main():
             dev_pwd = wlan_settings.get("pwd")
 
             if dev_country:
-                if BOARD == "esp32":
-                    pass
-                elif BOARD == "rp2":
+                if BOARD == "rp2":
                     rp2.country(dev_country)
 
             async def init_ap():
+                print("Init AP")
 
                 ap_if = WLAN(AP_IF)
                 mac_addr = ap_if.config('mac')
 
-                dev_id = binascii.hexlify(mac_addr)[:4]
+                dev_id = str(binascii.hexlify(mac_addr)[:4])
 
-                ap_if.config(ssid=f"MCW_{dev_id.upper():04}", password=f"My_MCW_{dev_id.upper():04}")
+                ap_if.config(ssid=f"MCW_{dev_id:04}", password=f"My_MCW_{dev_id.upper():04}")
+                
                 ap_if.active(True)
+                print(ap_if.ifconfig())
 
-            if dev_ssid == "":
-                await init_ap()
+            if (dev_ssid != "") and (dev_pwd != ""):
 
-            elif (dev_ssid != "") and (dev_pwd != ""):
-
-                # set power mode to get WiFi power-saving off (if needed)
-                sta_if.config(pm=0xa11140)
+                if BOARD == "rp2":
+                    # set power mode to get WiFi power-saving off (if needed)
+                    sta_if.config(pm=0xa11140)
 
                 if not sta_if.isconnected():
                     print('connecting to network...')
@@ -420,6 +419,8 @@ async def main():
                         await asyncio.sleep_ms(1000)
 
                         if conn_timeout <= 0:
+                            print("Can't connect")
+                            print("Init AP")
                             await init_ap()
                             break
 
@@ -428,9 +429,10 @@ async def main():
                 if sta_if.isconnected():
                     print(sta_if.ifconfig())
 
-            else:
-                await init_ap()
-                print("Error wlan credentials")
+            elif (dev_ssid == "") and (dev_pwd == ""):
+                print("Empty wlan credentials")
+                if BOARD == "rp2":
+                    await init_ap()
 
         async def wrapper(delay, coro):
             await asyncio.sleep(delay)
