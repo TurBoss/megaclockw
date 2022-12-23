@@ -18,7 +18,9 @@ Upload the project files found in the src directory to the root of the pico usin
 
 
 https://github.com/dhylands/rshell
+
 https://github.com/thonny/thonny/releases
+
 https://micropython.org/download/rp2-pico-w/
 
 
@@ -26,7 +28,7 @@ https://micropython.org/download/rp2-pico-w/
 ## Hardware Installation
 
 
-![](https://www.github.com.com/TurBoss/megaclockw/docs/schematic.png)
+![](https://raw.githubusercontent.com/TurBoss/megaclockw/main/docs/schematic.png)
 
 
 
