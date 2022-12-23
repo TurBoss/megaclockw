@@ -1,8 +1,15 @@
 import json
 import struct
 import binascii
+import os
 
-import rp2
+BOARD = os.uname().sysname
+print(f"Board: {BOARD}")
+
+if BOARD == "esp32":
+    pass
+elif BOARD == "rp2":
+    import rp2
 
 from network import WLAN, STA_IF, AP_IF
 
@@ -23,21 +30,36 @@ clock_freq_max = 12.8
 
 # PORT settings
 
-led_pin = Pin("LED", mode=Pin.OUT)
+if BOARD == "esp32":
+    pause_gpio = 19;
+    reset_gpio = 18;
+    videp_gpio = 17;
+    lang_gpio = 16;
+    pwm_gpio = 15;
 
-cpu_pause_pin = Pin(7, Pin.OUT)  # CPU pause
-cpu_reset_pin = Pin(9, Pin.OUT)  # console reset
-video_pin = Pin(10, Pin.OUT)  # video mode  JP3/4
-lang_pin = Pin(11, Pin.OUT)  # region JP1/2
-
-led = Signal(led_pin, invert=False)
+elif BOARD == "rp2":
+    led_gpio = "LED"
+    pause_gpio = 7;
+    reset_gpio = 9;
+    videp_gpio = 10
+    lang_gpio = 11;
+    pwm_gpio = 12;
+    
+cpu_pause_pin = Pin(pause_gpio, Pin.OUT)  # CPU pause
+cpu_reset_pin = Pin(reset_gpio, Pin.OUT)  # console reset
+video_pin = Pin(videp_gpio, Pin.OUT)  # video mode  JP3/4
+lang_pin = Pin(lang_gpio, Pin.OUT)  # region JP1/2
+    
+if BOARD == "rp2":
+    led_pin = Pin(led_gpio, mode=Pin.OUT)
+    led = Signal(led_pin, invert=False)
 
 cpu_pause = Signal(cpu_pause_pin, invert=False)
 cpu_reset = Signal(cpu_reset_pin, invert=False)
 video = Signal(video_pin, invert=False)
 lang = Signal(lang_pin, invert=False)
 
-cpu_pwm = PWM(Pin(12))
+cpu_pwm = PWM(Pin(pwm_gpio))
 cpu_pwm.duty_u16(32768)
 # cpu_pwm.freq(1000000)
 
@@ -232,7 +254,12 @@ async def main():
                 # await ws.send(f"adding client to {path}")
 
                 async for msg in ws:
-                    led.value(1)
+                    
+                    if BOARD == "esp32":
+                        pass
+                    elif BOARD == "rp2":
+                        led.value(1)
+
                     if msg == "__poll__":
                         json_read_file = open("data.json")
                         json_data = json.load(json_read_file)
@@ -287,8 +314,11 @@ async def main():
                             json_writefile = open("wlan.json", "w")
                             json_writefile.write(msg)
                             json_writefile.close()
-
-                    led.value(0)
+                            
+                    if BOARD == "esp32":
+                        pass
+                    elif BOARD == "rp2":
+                        led.value(0)
 
             finally:
                 print("Disconnected")
@@ -344,7 +374,10 @@ async def main():
             dev_pwd = wlan_settings.get("pwd")
 
             if dev_country:
-                rp2.country(dev_country)
+                if BOARD == "esp32":
+                    pass
+                elif BOARD == "rp2":
+                    rp2.country(dev_country)
 
             async def init_ap():
 
@@ -372,14 +405,17 @@ async def main():
                     while not sta_if.isconnected():
                         print(f"Connecting... {conn_timeout}")
                         conn_timeout -= 1
-
-                        led.value(1)
-                        await asyncio.sleep_ms(50)
-                        led.value(0)
-                        await asyncio.sleep_ms(50)
-                        led.value(1)
-                        await asyncio.sleep_ms(50)
-                        led.value(0)
+                        
+                        if BOARD == "esp32":
+                            pass
+                        elif BOARD == "rp2":
+                            led.value(1)
+                            await asyncio.sleep_ms(50)
+                            led.value(0)
+                            await asyncio.sleep_ms(50)
+                            led.value(1)
+                            await asyncio.sleep_ms(50)
+                            led.value(0)
 
                         await asyncio.sleep_ms(1000)
 
